@@ -1,38 +1,13 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
-int main() {
+int main(){
     ifstream file("lex.cpp");
 
-    if (!file.is_open()) {
-        cout << "File cannot open" << endl;
-        return 0;
-    }
-
     char ch;
-
-    cout << "Without whitespace:" << endl;
-    while (file.get(ch)) {
-        if (!isspace(ch))
-            cout << ch;
+    while(file.get(ch)){
+        if(!isspace(ch))
+        cout<<ch;
     }
 
-    cout << endl << endl;
-
-    file.clear();
-    file.seekg(0);
-
-    cout << "Numbers found:" << endl;
-
-    while (file.get(ch)) {
-        if (isdigit(ch)) {
-            while (isdigit(ch)) {
-                cout << ch;
-                if (!file.get(ch))
-                    break;
-            }
-            cout << endl;
-        }
-    }
-
-    file.close();
+    
 }
