@@ -3,9 +3,10 @@ using namespace std;
 int main(){
     ifstream file("lex.cpp");
     if(!file.is_open()){
-        cout<<"File is not open";
+        cout<<"file is not open";
         return 0;
     }
+
     char ch;
     while(file.get(ch)){
         if(!isspace(ch)){
@@ -19,11 +20,12 @@ int main(){
 
     while(file.get(ch)){
         if(isdigit(ch)){
+            string num="";
             while(isdigit(ch)){
-                cout<<ch;
+                num+=ch;
                 if(!file.get(ch)) break;
             }
-            cout<<endl;
+            cout<<"Num \t\t"<<num<<endl;
         }
     }
     file.close();
