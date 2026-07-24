@@ -11,7 +11,8 @@ int main(){
 
     string keyword[]={
         "int","float","double","if","else","for",
-        "while","return","void","break","continue"
+        "while","return","void","break","continue",
+        "includebitsstdch","using","namespace","std","main"
     };
 
     while(file>>word){
