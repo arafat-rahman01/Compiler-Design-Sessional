@@ -1,28 +1,42 @@
 #include<bits/stdc++.h>
 using namespace std;
 int main(){
-    ifstream file("lex.cpp");
-    if(!file.is_open()){
-        cout<<"this file is not be open";
-        return 0;
-    }
+    string infix;
+    stack<char>st;
 
-    string word;
+    cin>>infix;
 
-    string keyword[]={
-        "int","float"  
-    };
-    
-    while(file>>word){
-        string key="";
-        for(char ch:word){
-            if(isalnum(ch) || ch=='_') key+=ch;
+    for(char ch:infix){
+        if(isalnum(ch)){
+            cout<<ch;
         }
-        for(string k:keyword){
-            if(k==key){
-                cout<<k<<endl;
+
+        else if(ch=='('){
+            st.push(ch);
+        }
+
+        else if(ch==')'){
+            while(!st.empty() && st.top()!='('){
+                cout<<st.top();
+                st.pop();
             }
+            st.pop();
+        }
+
+        else if(ch==';'){
+            while(!st.empty()){
+                cout<<st.top();
+                st.pop();
+            }
+            break;
+        }
+        else{
+            while(!st.empty() && priority(st.top())=>priority(ch)){
+                cout<<st.top();
+                st.pop();
+            }
+            st.push(ch);
         }
     }
-    file.close();
+    return 0;
 }
