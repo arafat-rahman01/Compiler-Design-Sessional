@@ -7,9 +7,11 @@ int main(){
         return 0;
     }
     string word;
+    
     string keyword[]={
         "int","float","double","if","else","for",
-        "while","return","void","break","continue"
+        "while","return","void","break","continue",
+        "includebitsstdch","using","namespace","std","main"
     };
 
     while(file>>word){
@@ -17,19 +19,22 @@ int main(){
         for(char ch:word){
             if(isalnum(ch) || ch=='_') var+=ch;
         }
+
         if(var=="") continue;
 
-        bool isKeyword=false;
+        bool f=false;
 
         for(string k:keyword){
-            if(var==k){
-                isKeyword=true;
+            if(k==var){
+                f=true;
                 break;
             }
         }
-        if(!isKeyword && (isalpha(var[0]) || var[0]=='_')){
+
+        if(!f && (isalpha(var[0]) || var[0]=='_')){
             cout<<var<<endl;
         }
+
     }
     file.close();
 }
