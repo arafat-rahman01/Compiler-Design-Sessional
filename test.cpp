@@ -3,29 +3,32 @@ using namespace std;
 int main(){
     ifstream file("lex.cpp");
     if(!file.is_open()){
-        cout<<"file is not open";
+        cout<<"File is not open";
         return 0;
     }
+    string word;
+    string keyword[]={
+        "int","float","double","if","else","for",
+        "while","return","void","break","continue"
+    };
 
-    char ch;
-    while(file.get(ch)){
-        if(!isspace(ch)){
-            cout<<ch;
+    while(file>>word){
+        string var="";
+        for(char ch:word){
+            if(isalnum(ch) || ch=='_') var+=ch;
         }
-    }
-    cout<<"\n \n";
+        if(var=="") continue;
 
-    file.clear();
-    file.seekg(0);
+        bool isKeyword=false;
 
-    while(file.get(ch)){
-        if(isdigit(ch)){
-            string num="";
-            while(isdigit(ch)){
-                num+=ch;
-                if(!file.get(ch)) break;
+        for(string k:keyword){
+            if(var==k){
+                isKeyword=true;
+                break;
             }
-            cout<<"Num \t\t"<<num<<endl;
+        }
+        if(!isKeyword && (isalpha(var[0]) || var[0]=='_')){
+            cout<<var<<endl;
         }
     }
     file.close();
