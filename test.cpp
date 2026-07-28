@@ -201,13 +201,13 @@
 //     cout<<endl;
 // }
 
-#include<bits/stdc++.h>
-using namespace std;
-int main(){
-    string str;
-    cout<<"Grammer:\n";
-    cout<<"S->aS\n";
-    cout<<"S->Sb\n";
-    cout<<"S->ab\n\n";
-    
-}
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     string str;
+//     cout<<"Grammer:\n";
+//     cout<<"S->aS\n";
+//     cout<<"S->Sb\n";
+//     cout<<"S->ab\n\n";
+
+// }

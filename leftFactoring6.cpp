@@ -17,7 +17,7 @@ int main(){
     if(common=="") cout<<"Fact ! pos"<<endl;
     else{
         cout<<"A-> "<<common<<"A'"<<endl;
-        cout<<"A-> ";
+        cout<<"A'-> ";
 
         if(p1.substr(i)=="") cout<<"#";
         else cout<<p1.substr(i);
